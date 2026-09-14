@@ -1,8 +1,6 @@
 package ar.edu.unju.fi.arquitecturas.tp2daas;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -11,10 +9,18 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 
+@Entity
 public class Transacciones {
-    private Date Fecha;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Date fecha;
     private double monto;
     private String tipo;
     private String estado;
 
+    // Relación transacciones n-1 cuenta
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cuenta_financiera_id")
+    private CuentasFinancieras cuentaFinanciera;
 }
