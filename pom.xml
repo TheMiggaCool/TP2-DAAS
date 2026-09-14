@@ -60,6 +60,12 @@
             <version>1.18.42</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>11.0.0</version> <!-- O 9.0.0 / 10.0.0 según servidor -->
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
